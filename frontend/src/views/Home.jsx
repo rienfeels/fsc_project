@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useAuthStore } from "../store/auth";
+import "./Home.css";
 
 const Home = () => {
   const [isLoggedIn, user] = useAuthStore((state) => [
@@ -22,6 +23,12 @@ const LoggedInView = ({ user }) => {
       </Link>
       <Link to="/logout">
         <button>Logout</button>
+      </Link>
+      <Link to="/daily-report-form">
+        <button>Daily Report</button>
+      </Link>
+      <Link to="/dashboard">
+        <button>Dashboard</button>
       </Link>
     </div>
   );
