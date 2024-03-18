@@ -28,6 +28,12 @@ const LoggedInView = ({ user }) => {
       <Link to="/logout">
         <button>Logout</button>
       </Link>
+      <Link to="/daily-report-form">
+        <button>Daily Report</button>
+      </Link>
+      <Link to="/dashboard">
+        <button>Dashboard</button>
+      </Link>
     </div>
   );
 };

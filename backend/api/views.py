@@ -13,8 +13,6 @@ from .models import DailyReport
 from .serializer import DailyReportSerializer
 import json
 from reportlab.pdfgen import canvas
-# from .tts_service import generate_speech
-
 
 
 
