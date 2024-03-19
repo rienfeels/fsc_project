@@ -14,7 +14,7 @@ urlpatterns = [
     path('generate-pdf/<int:report_id>/', views.generate_pdf, name='generate-pdf'),
     path('get-daily-report/<int:report_id>/', views.get_daily_report, name='get-daily-report'),
     path('daily-reports/<int:report_id>/', update_daily_reports, name='update_daily_report'),
-    path('get-daily-report/delete/<int:report_id>/', delete_daily_report, name='delete-daily-report'),
+    path('get-daily-report/delete/<int:report_id>/', delete_daily_report, name='delete-daily-report'), 
     path('test/', views.testEndPoint, name='test-endpoint'),
     path('', views.getRoutes)
 ]

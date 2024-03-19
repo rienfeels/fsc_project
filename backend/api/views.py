@@ -15,7 +15,6 @@ import json
 from reportlab.pdfgen import canvas
 
 
-
 class MyTokenObtainPairView(TokenObtainPairView):
     serializer_class = MyTokenObtainPairSerializer
 
@@ -27,6 +26,7 @@ class RegisterView(generics.CreateAPIView):
 
 class DailyReportListCreate(generics.ListCreateAPIView):
     queryset = DailyReport.objects.all()
+    permission_classes = (AllowAny,)
     serializer_class = DailyReportSerializer
 
 
@@ -72,37 +72,7 @@ def daily_reports_list(request):
     serializer = DailyReportSerializer(daily_reports, many=True)
     return Response(serializer.data)
 
-# def tts_endpoint(request):
-#     if request.method == "POST":
-#         data = request.POST.get("text")
-#         if data:
-#             speech = generate_speech(data)
-#             return JsonResponse({"speech": speech})
-#         else:
-#             return JsonResponse({"error": "Text data not provided"}, status=400)
-#     else:
-#         return JsonResponse({"error": "Method not allowed"}, status=405)
-    
-def stt_endpoint(request):
-    if request.method == "POST":
-        audio_data = request.FILES.get("audio")
-        if audio_data:
-            client = speech.SpeechClient()
-            audio = speech.RecognitionAudio(content=audio_data.read())
-            config = speech.RecognitionConfig(
-                encoding=speech.RecognitionConfig.AudioEncoding.LINEAR16,
-                sample_rate_hertz=16000,
-                language_code="en-US",
-            )
-            response = client.recognize(config=config, audio=audio)
-            transcript = ""
-            for result in response.results:
-                transcript += result.alternatives[0].transcript
-            return JsonResponse({"transcript": transcript})
-        else:
-            return JsonResponse({"error": "Audio data not provided"}, status=400)
-    else:
-        return JsonResponse({"error": "Method not allowed"}, status=405)
+
 
 
 def generate_pdf(request, report_id):

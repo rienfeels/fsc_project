@@ -3,7 +3,6 @@ import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Home from "./views/Home";
 import MainWrapper from "./layouts/MainWrapper";
 import Login from "./views/Login";
-import PrivateRoute from "./layouts/PrivateRoute";
 import Logout from "./views/Logout";
 import Register from "./views/Register";
 import DailyReportForm from "./views/DailyReportForm";
