@@ -13,8 +13,8 @@ class DailyReport(models.Model):
     color = models.CharField(max_length=20)  # "white" or "yellow"
     material = models.CharField(max_length=10)  # "paint" or "thermo"
     line_type = models.CharField(max_length=10,default='', blank=True)  # "solid" or "skip"
-    white_footage = models.DecimalField(max_digits=10, decimal_places=2, default=0, blank=True, null=True)
-    white_size = models.CharField(max_length=50, default='', blank=True, null=True)
+    white_line_type = models.CharField(max_length=10, default='', blank=True)
+    yellow_line_type = models.CharField(max_length=10, default='', blank=True)
     white_solid_footage = models.DecimalField(max_digits=10, decimal_places=2, default=0, blank=True, null=True)
     white_skip_footage = models.DecimalField(max_digits=10, decimal_places=2, default=0, blank=True, null=True)
     yellow_solid_footage = models.DecimalField(max_digits=10, decimal_places=2, default=0, blank=True, null=True)
@@ -23,7 +23,5 @@ class DailyReport(models.Model):
     white_skip_size = models.CharField(max_length=50, default='', blank=True, null=True)
     yellow_solid_size = models.CharField(max_length=50, default='', blank=True, null=True)
     yellow_skip_size = models.CharField(max_length=50, default='', blank=True, null=True)
-    yellow_footage = models.DecimalField(max_digits=10, decimal_places=2, default=0, blank=True, null=True)
-    yellow_size = models.CharField(max_length=50, default='', blank=True, null=True)
     dot_employee = models.BooleanField(default=False)
 

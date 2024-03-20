@@ -77,7 +77,7 @@ def daily_reports_list(request):
 
 def generate_pdf(request, report_id):
     response = HttpResponse(content_type='application/pdf')
-    response['Content-Disposition'] = 'attachment; filename="daily_reports.pdf"'
+    response['Content-Disposition'] = 'attachment; filename="daily_report.pdf"'
 
     report = DailyReport.objects.get(id=report_id)
 
@@ -86,17 +86,67 @@ def generate_pdf(request, report_id):
     pdf.drawString(100, y_coordinate, f"Road Name: {report.road_name}")
     pdf.drawString(100, y_coordinate - 20, f"Contractor: {report.contractor}")
     pdf.drawString(100, y_coordinate - 40, f"Workers: {report.workers}")
-    pdf.drawString(100, y_coordinate - 60, f"Job Time Arrived: {report.job_time_arrived}")
-    pdf.drawString(100, y_coordinate - 80, f"Job Time Finished: {report.job_time_finished}")
+    pdf.drawString(100, y_coordinate - 60, f"Job Time Arrived: {report.job_time_arrived.strftime('%H:%M')}")
+    pdf.drawString(100, y_coordinate - 80, f"Job Time Finished: {report.job_time_finished.strftime('%H:%M')}")
     pdf.drawString(100, y_coordinate - 100, f"Color: {report.color}")
     pdf.drawString(100, y_coordinate - 120, f"Material: {report.material}")
-    pdf.drawString(100, y_coordinate - 140, f"Line Type: {report.line_type}")
-    pdf.drawString(100, y_coordinate - 160, f"White Footage: {report.white_footage}")
-    pdf.drawString(100, y_coordinate - 180, f"White Size: {report.white_size}")
-    pdf.drawString(100, y_coordinate - 200, f"Yellow Footage: {report.yellow_footage}")
-    pdf.drawString(100, y_coordinate - 220, f"Yellow Size: {report.yellow_size}")
-    pdf.drawString(100, y_coordinate - 240, f"DOT Employee: {report.dot_employee}")
-    y_coordinate -= 300
+
+    if report.color == 'white':
+        pdf.drawString(100, y_coordinate - 140, f"White Line Type: {report.white_line_type}")
+        if report.white_line_type == 'solid':
+            pdf.drawString(100, y_coordinate - 160, f"White Solid Footage: {report.white_solid_footage}")
+            pdf.drawString(100, y_coordinate - 180, f"White Solid Size: {report.white_solid_size}")
+        elif report.white_line_type == 'skip':
+            pdf.drawString(100, y_coordinate - 160, f"White Skip Footage: {report.white_skip_footage}")
+            pdf.drawString(100, y_coordinate - 180, f"White Skip Size: {report.white_skip_size}")
+        elif report.white_line_type == 'both':
+            pdf.drawString(100, y_coordinate - 160, f"White Solid Footage: {report.white_solid_footage}")
+            pdf.drawString(100, y_coordinate - 180, f"White Solid Size: {report.white_solid_size}")
+            pdf.drawString(100, y_coordinate - 200, f"White Skip Footage: {report.white_skip_footage}")
+            pdf.drawString(100, y_coordinate - 220, f"White Skip Size: {report.white_skip_size}")
+    elif report.color == 'yellow':
+        pdf.drawString(100, y_coordinate - 140, f"Yellow Line Type: {report.yellow_line_type}")
+        if report.yellow_line_type == 'solid':
+            pdf.drawString(100, y_coordinate - 160, f"Yellow Solid Footage: {report.yellow_solid_footage}")
+            pdf.drawString(100, y_coordinate - 180, f"Yellow Solid Size: {report.yellow_solid_size}")
+        elif report.yellow_line_type == 'skip':
+            pdf.drawString(100, y_coordinate - 160, f"Yellow Skip Footage: {report.yellow_skip_footage}")
+            pdf.drawString(100, y_coordinate - 180, f"Yellow Skip Size: {report.yellow_skip_size}")
+        elif report.yellow_line_type == 'both':
+            pdf.drawString(100, y_coordinate - 160, f"Yellow Solid Footage: {report.yellow_solid_footage}")
+            pdf.drawString(100, y_coordinate - 180, f"Yellow Solid Size: {report.yellow_solid_size}")
+            pdf.drawString(100, y_coordinate - 200, f"Yellow Skip Footage: {report.yellow_skip_footage}")
+            pdf.drawString(100, y_coordinate - 220, f"Yellow Skip Size: {report.yellow_skip_size}")
+    elif report.color == 'both':
+        pdf.drawString(100, y_coordinate - 140, f"White Line Type: {report.white_line_type}")
+        if report.white_line_type == 'solid':
+            pdf.drawString(100, y_coordinate - 160, f"White Solid Footage: {report.white_solid_footage}")
+            pdf.drawString(100, y_coordinate - 180, f"White Solid Size: {report.white_solid_size}")
+        elif report.white_line_type == 'skip':
+            pdf.drawString(100, y_coordinate - 160, f"White Skip Footage: {report.white_skip_footage}")
+            pdf.drawString(100, y_coordinate - 180, f"White Skip Size: {report.white_skip_size}")
+        elif report.white_line_type == 'both':
+            pdf.drawString(100, y_coordinate - 160, f"White Solid Footage: {report.white_solid_footage}")
+            pdf.drawString(100, y_coordinate - 180, f"White Solid Size: {report.white_solid_size}")
+            pdf.drawString(100, y_coordinate - 200, f"White Skip Footage: {report.white_skip_footage}")
+            pdf.drawString(100, y_coordinate - 220, f"White Skip Size: {report.white_skip_size}")
+
+        pdf.drawString(100, y_coordinate - 240, f"Yellow Line Type: {report.yellow_line_type}")
+        if report.yellow_line_type == 'solid':
+            pdf.drawString(100, y_coordinate - 260, f"Yellow Solid Footage: {report.yellow_solid_footage}")
+            pdf.drawString(100, y_coordinate - 280, f"Yellow Solid Size: {report.yellow_solid_size}")
+        elif report.yellow_line_type == 'skip':
+            pdf.drawString(100, y_coordinate - 260, f"Yellow Skip Footage: {report.yellow_skip_footage}")
+            pdf.drawString(100, y_coordinate - 280, f"Yellow Skip Size: {report.yellow_skip_size}")
+        elif report.yellow_line_type == 'both':
+            pdf.drawString(100, y_coordinate - 260, f"Yellow Solid Footage: {report.yellow_solid_footage}")
+            pdf.drawString(100, y_coordinate - 280, f"Yellow Solid Size: {report.yellow_solid_size}")
+            pdf.drawString(100, y_coordinate - 300, f"Yellow Skip Footage: {report.yellow_skip_footage}")
+            pdf.drawString(100, y_coordinate - 320, f"Yellow Skip Size: {report.yellow_skip_size}")
+
+    pdf.drawString(100, y_coordinate - 340, f"DOT Employee: {'Yes' if report.dot_employee else 'No'}")
+
+    y_coordinate -= 380
 
     pdf.save()
     return response

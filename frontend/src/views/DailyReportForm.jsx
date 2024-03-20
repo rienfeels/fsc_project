@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+// import { useHistory } from "react-router-dom";
 
 const DailyReportForm = () => {
   const initialFormData = {
@@ -20,6 +21,7 @@ const DailyReportForm = () => {
   const [formData, setFormData] = useState(initialFormData);
   const [submissionError, setSubmissionError] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  // const history = useHistory();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -37,6 +39,7 @@ const DailyReportForm = () => {
       if (response.ok) {
         console.log("Report submitted successfully");
         setFormData(initialFormData);
+        // history.push("/dashboard");
       } else {
         const errorData = await response.json();
         throw new Error(errorData.detail || "Something went wrong");
@@ -61,73 +64,73 @@ const DailyReportForm = () => {
       return (
         <>
           <div className="form-input-container">
-            <label htmlFor="line_type">Line Type:</label>
+            <label htmlFor="white_line_type">White Line Type:</label>
             <select
               className="form-input"
-              id="line_type"
-              name="line_type"
-              value={formData.line_type}
+              id="white_line_type"
+              name="white_line_type"
+              value={formData.white_line_type}
               onChange={handleChange}
             >
-              <option value="">Select Line Type</option>
+              <option value="">Select White Line Type</option>
               <option value="solid">Solid</option>
               <option value="skip">Skip</option>
               <option value="both">Both</option>
             </select>
           </div>
-          {formData.line_type === "solid" && (
+          {formData.white_line_type === "solid" && (
             <>
               <div className="form-input-container">
-                <label htmlFor="white_footage">White Footage:</label>
+                <label htmlFor="white_footage">White Solid Footage:</label>
                 <input
                   className="form-input"
                   type="number"
-                  id="white_footage"
-                  name="white_footage"
-                  value={formData.white_footage}
+                  id="white_solid_footage"
+                  name="white_solid_footage"
+                  value={formData.white_solid_footage}
                   onChange={handleChange}
                 />
               </div>
               <div className="form-input-container">
-                <label htmlFor="white_size">White Size:</label>
+                <label htmlFor="white_size">White Solid Size:</label>
                 <input
                   className="form-input"
                   type="text"
-                  id="white_size"
-                  name="white_size"
-                  value={formData.white_size}
+                  id="white_solid_size"
+                  name="white_solid_size"
+                  value={formData.white_solid_size}
                   onChange={handleChange}
                 />
               </div>
             </>
           )}
-          {formData.line_type === "skip" && (
+          {formData.white_line_type === "skip" && (
             <>
               <div className="form-input-container">
-                <label htmlFor="white_footage">White Footage:</label>
+                <label htmlFor="white_footage">White Skip Footage:</label>
                 <input
                   className="form-input"
                   type="number"
-                  id="white_footage"
-                  name="white_footage"
-                  value={formData.white_footage}
+                  id="white_skip_footage"
+                  name="white_skip_footage"
+                  value={formData.white_skip_footage}
                   onChange={handleChange}
                 />
               </div>
               <div className="form-input-container">
-                <label htmlFor="white_size">White Size:</label>
+                <label htmlFor="white_size">White Skip Size:</label>
                 <input
                   className="form-input"
                   type="text"
-                  id="white_size"
-                  name="white_size"
-                  value={formData.white_size}
+                  id="white_skip_size"
+                  name="white_skip_size"
+                  value={formData.white_skip_size}
                   onChange={handleChange}
                 />
               </div>
             </>
           )}
-          {formData.line_type === "both" && (
+          {formData.white_line_type === "both" && (
             <>
               <div className="form-input-container">
                 <label htmlFor="white_solid_footage">
@@ -183,73 +186,73 @@ const DailyReportForm = () => {
       return (
         <>
           <div className="form-input-container">
-            <label htmlFor="line_type">Line Type:</label>
+            <label htmlFor="yellow_line_type">Yellow Line Type:</label>
             <select
               className="form-input"
-              id="line_type"
-              name="line_type"
-              value={formData.line_type}
+              id="yellow_line_type"
+              name="yellow_line_type"
+              value={formData.yellow_line_type}
               onChange={handleChange}
             >
-              <option value="">Select Line Type</option>
+              <option value="">Select Yellow Line Type</option>
               <option value="solid">Solid</option>
               <option value="skip">Skip</option>
               <option value="both">Both</option>
             </select>
           </div>
-          {formData.line_type === "solid" && (
+          {formData.yellow_line_type === "solid" && (
             <>
               <div className="form-input-container">
-                <label htmlFor="yellow_footage">Yellow Footage:</label>
+                <label htmlFor="yellow_footage">Yellow Solid Footage:</label>
                 <input
                   className="form-input"
                   type="number"
-                  id="yellow_footage"
-                  name="yellow_footage"
-                  value={formData.yellow_footage}
+                  id="yellow_solid_footage"
+                  name="yellow_solid_footage"
+                  value={formData.yellow_solid_footage}
                   onChange={handleChange}
                 />
               </div>
               <div className="form-input-container">
-                <label htmlFor="yellow_size">Yellow Size:</label>
+                <label htmlFor="yellow_size">Yellow Solid Size:</label>
                 <input
                   className="form-input"
                   type="text"
-                  id="yellow_size"
-                  name="yellow_size"
-                  value={formData.yellow_size}
+                  id="yellow_solid_size"
+                  name="yellow_solid_size"
+                  value={formData.yellow_solid_size}
                   onChange={handleChange}
                 />
               </div>
             </>
           )}
-          {formData.line_type === "skip" && (
+          {formData.yellow_line_type === "skip" && (
             <>
               <div className="form-input-container">
-                <label htmlFor="yellow_footage">Yellow Footage:</label>
+                <label htmlFor="yellow_footage">Yellow Skip Footage:</label>
                 <input
                   className="form-input"
                   type="number"
-                  id="yellow_footage"
-                  name="yellow_footage"
-                  value={formData.yellow_footage}
+                  id="yellow_skip_footage"
+                  name="yellow_skip_footage"
+                  value={formData.yellow_skip_footage}
                   onChange={handleChange}
                 />
               </div>
               <div className="form-input-container">
-                <label htmlFor="yellow_size">Yellow Size:</label>
+                <label htmlFor="yellow_size">Yellow Skip Size:</label>
                 <input
                   className="form-input"
                   type="text"
-                  id="yellow_size"
-                  name="yellow_size"
-                  value={formData.yellow_size}
+                  id="yellow_skip_size"
+                  name="yellow_skip_size"
+                  value={formData.yellow_skip_size}
                   onChange={handleChange}
                 />
               </div>
             </>
           )}
-          {formData.line_type === "both" && (
+          {formData.yellow_line_type === "both" && (
             <>
               <div className="form-input-container">
                 <label htmlFor="yellow_solid_footage">
@@ -324,24 +327,24 @@ const DailyReportForm = () => {
           {formData.white_line_type === "solid" && (
             <>
               <div className="form-input-container">
-                <label htmlFor="white_footage">White Footage:</label>
+                <label htmlFor="white_footage">White Solid Footage:</label>
                 <input
                   className="form-input"
                   type="number"
-                  id="white_footage"
-                  name="white_footage"
-                  value={formData.white_footage}
+                  id="white_solid_footage"
+                  name="white_solid_footage"
+                  value={formData.white_solid_footage}
                   onChange={handleChange}
                 />
               </div>
               <div className="form-input-container">
-                <label htmlFor="white_size">White Size:</label>
+                <label htmlFor="white_size">White Solid Size:</label>
                 <input
                   className="form-input"
                   type="text"
-                  id="white_size"
-                  name="white_size"
-                  value={formData.white_size}
+                  id="white_solid_size"
+                  name="white_solid_size"
+                  value={formData.white_solid_size}
                   onChange={handleChange}
                 />
               </div>
@@ -441,24 +444,24 @@ const DailyReportForm = () => {
           {formData.yellow_line_type === "solid" && (
             <>
               <div className="form-input-container">
-                <label htmlFor="yellow_footage">Yellow Footage:</label>
+                <label htmlFor="yellow_footage">Yellow Solid Footage:</label>
                 <input
                   className="form-input"
                   type="number"
-                  id="yellow_footage"
-                  name="yellow_footage"
-                  value={formData.yellow_footage}
+                  id="yellow_solid_footage"
+                  name="yellow_solid_footage"
+                  value={formData.yellow_solid_footage}
                   onChange={handleChange}
                 />
               </div>
               <div className="form-input-container">
-                <label htmlFor="yellow_size">Yellow Size:</label>
+                <label htmlFor="yellow_size">Yellow Solid Size:</label>
                 <input
                   className="form-input"
                   type="text"
-                  id="yellow_size"
-                  name="yellow_size"
-                  value={formData.yellow_size}
+                  id="yellow_solid_size"
+                  name="yellow_solid_size"
+                  value={formData.yellow_solid_size}
                   onChange={handleChange}
                 />
               </div>
@@ -467,24 +470,24 @@ const DailyReportForm = () => {
           {formData.yellow_line_type === "skip" && (
             <>
               <div className="form-input-container">
-                <label htmlFor="yellow_footage">Yellow Footage:</label>
+                <label htmlFor="yellow_footage">Yellow Skip Footage:</label>
                 <input
                   className="form-input"
                   type="number"
-                  id="yellow_footage"
-                  name="yellow_footage"
-                  value={formData.yellow_footage}
+                  id="yellow_skip_footage"
+                  name="yellow_skip_footage"
+                  value={formData.yellow_skip_footage}
                   onChange={handleChange}
                 />
               </div>
               <div className="form-input-container">
-                <label htmlFor="yellow_size">Yellow Size:</label>
+                <label htmlFor="yellow_size">Yellow Skip Size:</label>
                 <input
                   className="form-input"
                   type="text"
-                  id="yellow_size"
-                  name="yellow_size"
-                  value={formData.yellow_size}
+                  id="yellow_skip_size"
+                  name="yellow_skip_size"
+                  value={formData.yellow_skip_size}
                   onChange={handleChange}
                 />
               </div>
@@ -548,152 +551,155 @@ const DailyReportForm = () => {
   };
 
   return (
-    <div className="form-container">
-      <form onSubmit={handleSubmit}>
-        <div className="form-input-container">
-          <div className="form-label">
-            <label htmlFor="user">User:</label>
+    <div className="background-image">
+      <img src="/public/Images/business.png" />
+      <div className="form-container">
+        <form onSubmit={handleSubmit}>
+          <div className="form-input-container">
+            <div className="form-label">
+              <label htmlFor="user">User:</label>
+            </div>
+            <input
+              className="form-input"
+              type="text"
+              id="user"
+              name="user"
+              value={formData.user}
+              onChange={handleChange}
+            />
           </div>
-          <input
-            className="form-input"
-            type="text"
-            id="user"
-            name="user"
-            value={formData.user}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="form-input-container">
-          <div className="form-label">
-            <label htmlFor="date_submitted">Date Submitted:</label>
+          <div className="form-input-container">
+            <div className="form-label">
+              <label htmlFor="date_submitted">Date Submitted:</label>
+            </div>
+            <input
+              className="form-input"
+              type="date"
+              id="date_submitted"
+              name="date_submitted"
+              value={formData.date_submitted}
+              onChange={handleChange}
+            />
           </div>
-          <input
-            className="form-input"
-            type="date"
-            id="date_submitted"
-            name="date_submitted"
-            value={formData.date_submitted}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="form-input-container">
-          <div className="form-label">
-            <label htmlFor="road_name">Road Name:</label>
+          <div className="form-input-container">
+            <div className="form-label">
+              <label htmlFor="road_name">Road Name:</label>
+            </div>
+            <input
+              className="form-input"
+              type="text"
+              id="road_name"
+              name="road_name"
+              value={formData.road_name}
+              onChange={handleChange}
+            />
           </div>
-          <input
-            className="form-input"
-            type="text"
-            id="road_name"
-            name="road_name"
-            value={formData.road_name}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="form-input-container">
-          <div className="form-label">
-            <label htmlFor="contractor">Contractor:</label>
+          <div className="form-input-container">
+            <div className="form-label">
+              <label htmlFor="contractor">Contractor:</label>
+            </div>
+            <input
+              className="form-input"
+              type="text"
+              id="contractor"
+              name="contractor"
+              value={formData.contractor}
+              onChange={handleChange}
+            />
           </div>
-          <input
-            className="form-input"
-            type="text"
-            id="contractor"
-            name="contractor"
-            value={formData.contractor}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="form-input-container">
-          <div className="form-label">
-            <label htmlFor="workers">Workers:</label>
+          <div className="form-input-container">
+            <div className="form-label">
+              <label htmlFor="workers">Workers:</label>
+            </div>
+            <input
+              className="form-input"
+              type="text"
+              id="workers"
+              name="workers"
+              value={formData.workers}
+              onChange={handleChange}
+            />
           </div>
-          <input
-            className="form-input"
-            type="text"
-            id="workers"
-            name="workers"
-            value={formData.workers}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="form-input-container">
-          <div className="form-label">
-            <label htmlFor="job_time_arrived">Job Time Arrived:</label>
+          <div className="form-input-container">
+            <div className="form-label">
+              <label htmlFor="job_time_arrived">Job Time Arrived:</label>
+            </div>
+            <input
+              className="form-input"
+              type="time"
+              id="job_time_arrived"
+              name="job_time_arrived"
+              value={formData.job_time_arrived}
+              onChange={handleChange}
+            />
           </div>
-          <input
-            className="form-input"
-            type="time"
-            id="job_time_arrived"
-            name="job_time_arrived"
-            value={formData.job_time_arrived}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="form-input-container">
-          <div className="form-label">
-            <label htmlFor="job_time_finished">Job Time Finished:</label>
+          <div className="form-input-container">
+            <div className="form-label">
+              <label htmlFor="job_time_finished">Job Time Finished:</label>
+            </div>
+            <input
+              className="form-input"
+              type="time"
+              id="job_time_finished"
+              name="job_time_finished"
+              value={formData.job_time_finished}
+              onChange={handleChange}
+            />
           </div>
-          <input
-            className="form-input"
-            type="time"
-            id="job_time_finished"
-            name="job_time_finished"
-            value={formData.job_time_finished}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="form-input-container">
-          <label htmlFor="color">Color:</label>
-          <select
-            className="form-input"
-            id="color"
-            name="color"
-            value={formData.color}
-            onChange={handleChange}
-          >
-            <option value="">Select Color</option>
-            <option value="white">White</option>
-            <option value="yellow">Yellow</option>
-            <option value="both">Both</option>
-          </select>
-        </div>
-        <div className="form-input-container">
-          <div className="form-label">
-            <label htmlFor="material">Material:</label>
+          <div className="form-input-container">
+            <label htmlFor="color">Color:</label>
+            <select
+              className="form-input"
+              id="color"
+              name="color"
+              value={formData.color}
+              onChange={handleChange}
+            >
+              <option value="">Select Color</option>
+              <option value="white">White</option>
+              <option value="yellow">Yellow</option>
+              <option value="both">Both</option>
+            </select>
           </div>
-          <input
-            className="form-input"
-            type="text"
-            id="material"
-            name="material"
-            value={formData.material}
-            onChange={handleChange}
-          />
-        </div>
+          <div className="form-input-container">
+            <div className="form-label">
+              <label htmlFor="material">Material:</label>
+            </div>
+            <input
+              className="form-input"
+              type="text"
+              id="material"
+              name="material"
+              value={formData.material}
+              onChange={handleChange}
+            />
+          </div>
 
-        <div className="form-input-container">
-          <div className="form-label">
-            <label htmlFor="dot_employee">DOT Employee:</label>
+          <div className="form-input-container">
+            <div className="form-label">
+              <label htmlFor="dot_employee">DOT Employee:</label>
+            </div>
+            <input
+              className="form-input"
+              type="checkbox"
+              id="dot_employee"
+              name="dot_employee"
+              checked={formData.dot_employee}
+              onChange={(e) =>
+                setFormData((prevFormData) => ({
+                  ...prevFormData,
+                  dot_employee: e.target.checked,
+                }))
+              }
+            />
           </div>
-          <input
-            className="form-input"
-            type="checkbox"
-            id="dot_employee"
-            name="dot_employee"
-            checked={formData.dot_employee}
-            onChange={(e) =>
-              setFormData((prevFormData) => ({
-                ...prevFormData,
-                dot_employee: e.target.checked,
-              }))
-            }
-          />
-        </div>
-        {renderInputs()}
-        <button type="submit" disabled={isSubmitting}>
-          {isSubmitting ? "Submitting..." : "Submit"}
-        </button>
-        {submissionError && <p className="error">{submissionError}</p>}
-      </form>
+          {renderInputs()}
+          <button type="submit" disabled={isSubmitting}>
+            {isSubmitting ? "Submitting..." : "Submit"}
+          </button>
+          {submissionError && <p className="error">{submissionError}</p>}
+        </form>
+      </div>
     </div>
   );
 };

@@ -10,7 +10,10 @@ const Home = () => {
   ]);
   return (
     <div>
-      {isLoggedIn() ? <LoggedInView user={user()} /> : <LoggedOutView />}
+      <div className="logo">
+        <img src="/public/Images/logo2.png" />
+        {isLoggedIn() ? <LoggedInView user={user()} /> : <LoggedOutView />}
+      </div>
     </div>
   );
 };

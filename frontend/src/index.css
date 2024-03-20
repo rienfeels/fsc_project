@@ -13,6 +13,32 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+body {
+  background-color: #518d96;
+  /* background-image: url("public/Images/business.png"); */
+}
+
+.selected-report-container {
+  display: flex;
+  flex-direction: column;
+  background: rgba(0, 0, 0, 0.093);
+  border-radius: 10px;
+  width: 40vw;
+  height: 80vh;
+  padding-right: 30px;
+  overflow: scroll;
+}
+
+.report-container {
+  display: flex;
+  flex-direction: column;
+  background: rgba(0, 0, 0, 0.341);
+  border-radius: 10px;
+  width: 40vw;
+  padding-right: 30px;
+  overflow: scroll;
+}
+
 .form-container {
   display: flex;
   flex-direction: column;
@@ -21,6 +47,15 @@
   width: 50vw;
   height: 80vh;
   overflow: scroll;
+}
+
+.background-image img {
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+  right: 28%;
+  object-fit: cover;
+  opacity: 0.45;
 }
 
 .form-label {
