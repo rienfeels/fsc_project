@@ -141,3 +141,31 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+@media screen and (max-width: 430px) {
+  :root {
+    font-size: 14px; /* Adjust base font size */
+  }
+
+  .selected-report-container,
+  .report-container {
+    width: 90vw; /* Use viewport width */
+    height: auto; /* Adjust height dynamically */
+    padding-right: 15px; /* Adjust padding */
+  }
+
+  .form-container {
+    width: 90vw; /* Adjust width */
+    height: auto; /* Make height dynamic */
+  }
+
+  .form-input-container,
+  .background-image img {
+    width: 100%; /* Full width */
+  }
+
+  body {
+    display: block; /* Stack elements vertically */
+    place-items: initial;
+  }
+}

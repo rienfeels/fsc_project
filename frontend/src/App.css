@@ -39,3 +39,13 @@
 .read-the-docs {
   color: #888;
 }
+
+@media screen and (max-width: 430px) {
+  #root {
+    padding: 1rem; /* Reduce padding */
+  }
+
+  .logo {
+    padding: 1em; /* Smaller padding for logo */
+  }
+}

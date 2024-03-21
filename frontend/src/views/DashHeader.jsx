@@ -16,7 +16,7 @@ const Header = () => {
             <button>Logout</button>
           </Link>
           <div>
-            <img src="/public/Images/logo3.png" alt="logo" />
+            <img src="/Images/logo3.png" alt="logo" />
           </div>
         </div>
       </nav>

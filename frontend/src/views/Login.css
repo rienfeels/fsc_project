@@ -122,3 +122,26 @@
   background-color: red;
   color: white;
 }
+
+@media screen and (max-width: 430px) {
+  .form {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+
+  .card,
+  .card2 {
+    border-radius: 15px; /* Softer corners */
+  }
+
+  .form .btn {
+    flex-direction: column; /* Stack buttons vertically */
+  }
+
+  .button1,
+  .button2,
+  .button3 {
+    padding-left: 1em;
+    padding-right: 1em; /* Adjust button padding */
+  }
+}

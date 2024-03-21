@@ -27,9 +27,9 @@ const LoggedInView = ({ user }) => {
       <Link to="/logout">
         <button>Logout</button>
       </Link>
-      <h1>Fields Specialty Contractors Inc.</h1>
+      {/* <h1>Fields Specialty Contractors Inc.</h1> */}
       <div className="logo">
-        <img src="/public/Images/logo2.png" />
+        <img src="/Images/logo3.png" />
       </div>
       <h1>Welcome {user.username}</h1>
     </div>
@@ -45,10 +45,18 @@ export const LoggedOutView = ({ title = "Home" }) => {
         <img src="/public/Images/logo2.png" />
       </div>
       <Link to="/login">
-        <button>Login</button>
+        <button type="button" className="button">
+          <div className="button-top">Login</div>
+          <div className="button-bottom"></div>
+          <div className="button-base"></div>
+        </button>
       </Link>
       <Link to="/register">
-        <button>Register</button>
+        <button type="button" className="button">
+          <div className="button-top">Register</div>
+          <div className="button-bottom"></div>
+          <div className="button-base"></div>
+        </button>
       </Link>
     </div>
   );

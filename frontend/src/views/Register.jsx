@@ -35,12 +35,12 @@ function Register() {
   };
 
   return (
-    <div class="card">
-      <div class="card2">
-        <form class="form" onSubmit={handleSubmit}>
+    <div className="card">
+      <div className="card2">
+        <form className="form" onSubmit={handleSubmit}>
           <p id="heading">Register</p>
           {/* <hr /> */}
-          <div class="field">
+          <div className="field">
             <label htmlFor="username">Username</label>
             <input
               type="text"
@@ -50,7 +50,7 @@ function Register() {
               required
             />
           </div>
-          <div class="field">
+          <div className="field">
             <label htmlFor="password">Password</label>
             <input
               type="password"
@@ -60,7 +60,7 @@ function Register() {
               required
             />
           </div>
-          <div class="field">
+          <div className="field">
             <label htmlFor="confirm-password">Confirm Password</label>
             <input
               type="password"
@@ -71,7 +71,7 @@ function Register() {
             />
             <p>{password2 !== password ? "Passwords do not match" : ""}</p>
           </div>
-          <button type="submit" class="button1">
+          <button type="submit" className="button1">
             Register
           </button>
         </form>
