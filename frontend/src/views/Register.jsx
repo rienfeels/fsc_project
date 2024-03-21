@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { register } from "../utils/auth";
 import { useNavigate } from "react-router-dom";
 import { useAuthStore } from "../store/auth";
+import "./Login.css";
 
 function Register() {
   const [username, setUsername] = useState("");
@@ -34,44 +35,48 @@ function Register() {
   };
 
   return (
-    <section>
-      <form onSubmit={handleSubmit}>
-        <h1>Register</h1>
-        <hr />
-        <div>
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            id="username"
-            onChange={(e) => setUsername(e.target.value)}
-            placeholder="Username"
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Password"
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="confirm-password">Confirm Password</label>
-          <input
-            type="password"
-            id="confirm-password"
-            onChange={(e) => setPassword2(e.target.value)}
-            placeholder="Confirm Password"
-            required
-          />
-          <p>{password2 !== password ? "Passwords do not match" : ""}</p>
-        </div>
-        <button type="submit">Register</button>
-      </form>
-    </section>
+    <div class="card">
+      <div class="card2">
+        <form class="form" onSubmit={handleSubmit}>
+          <p id="heading">Register</p>
+          {/* <hr /> */}
+          <div class="field">
+            <label htmlFor="username">Username</label>
+            <input
+              type="text"
+              id="username"
+              onChange={(e) => setUsername(e.target.value)}
+              placeholder="Username"
+              required
+            />
+          </div>
+          <div class="field">
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Password"
+              required
+            />
+          </div>
+          <div class="field">
+            <label htmlFor="confirm-password">Confirm Password</label>
+            <input
+              type="password"
+              id="confirm-password"
+              onChange={(e) => setPassword2(e.target.value)}
+              placeholder="Confirm Password"
+              required
+            />
+            <p>{password2 !== password ? "Passwords do not match" : ""}</p>
+          </div>
+          <button type="submit" class="button1">
+            Register
+          </button>
+        </form>
+      </div>
+    </div>
   );
 }
 

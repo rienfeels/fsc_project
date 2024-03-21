@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Headers from "./ReportHeader";
 // import { useHistory } from "react-router-dom";
 
 const DailyReportForm = () => {
@@ -551,8 +552,8 @@ const DailyReportForm = () => {
   };
 
   return (
-    <div className="background-image">
-      <img src="/public/Images/business.png" />
+    <div>
+      <Headers />
       <div className="form-container">
         <form onSubmit={handleSubmit}>
           <div className="form-input-container">

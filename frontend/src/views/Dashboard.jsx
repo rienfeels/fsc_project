@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Header from "./DashHeader";
 import "./Dashboard.css"; // Import CSS file for styles
 
 const Dashboard = () => {
@@ -283,6 +284,7 @@ const Dashboard = () => {
 
   return (
     <div>
+      <Header />
       <h2>Daily Reports Dashboard</h2>
       <div>
         <div>
