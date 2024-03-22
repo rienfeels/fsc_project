@@ -36,4 +36,4 @@ hooks:
 
 web:
   commands:
-    start: "python server.py"
+    start: "manage.py runserver 0.0.0.0:${PORT}"
