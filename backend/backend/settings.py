@@ -13,6 +13,9 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from datetime import timedelta
 from pathlib import Path
 import os
+import base64
+import sys
+import json
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -79,6 +82,30 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
+
+
+# This variable should always match the primary database relationship name,
+#   configured in .platform.app.yaml.
+PLATFORMSH_DB_RELATIONSHIP="database"
+
+
+def decode(variable):
+    """Decodes a Platform.sh environment variable.
+    Args:
+        variable (string):
+            Base64-encoded JSON (the content of an environment variable).
+    Returns:
+        An dict (if representing a JSON object), or a scalar type.
+    Raises:
+        JSON decoding error.
+    """
+    try:
+        if sys.version_info[1] > 5:
+            return json.loads(base64.b64decode(variable))
+        else:
+            return json.loads(base64.b64decode(variable).decode('utf-8'))
+    except json.decoder.JSONDecodeError:
+        print('Error decoding JSON, code %d', json.decoder.JSONDecodeError)
 
 
 if (os.getenv('PLATFORM_APPLICATION_NAME') is not None):
