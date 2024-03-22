@@ -36,4 +36,4 @@ hooks:
 
 web:
   commands:
-    start: "gunicorn Final_Project.wsgi:application --bind 0.0.0.0:${PORT}"
+    start: "gunicorn backend.wsgi"
