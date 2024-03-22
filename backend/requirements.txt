@@ -20,8 +20,6 @@ gunicorn==21.2.0
 h11==0.14.0
 httpcore==1.0.4
 httpx==0.27.0
-ibm-cloud-sdk-core==3.19.2
-ibm-watson==8.0.0
 idna==3.6
 openai==1.14.1
 packaging==24.0
@@ -45,5 +43,3 @@ sqlparse==0.4.4
 tqdm==4.66.2
 typing_extensions==4.10.0
 urllib3==2.2.1
-watson-developer-cloud==2.10.1
-websocket-client==1.7.0
