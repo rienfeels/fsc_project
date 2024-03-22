@@ -11,7 +11,7 @@ name: "backend"
 
 # The runtime the application uses.
 # Complete list of available runtimes: https://docs.platform.sh/create-apps/app-reference.html#types
-type: "python:3.10"
+type: "python:3.12"
 dependencies:
   python3:
     pipenv: "*"
@@ -74,10 +74,10 @@ hooks:
     set -eu
 
     # Download the latest version of pip
-    python3.10 -m pip install --upgrade pip
+    python3.12 -m pip install --upgrade pip
 
     # Install dependencies
-    pipenv install -r requirements.txt
+    pip install -r requirements.txt
 
     # Collect static assets
     python manage.py collectstatic
