@@ -15,9 +15,7 @@ const Header = () => {
           <Link to="/logout">
             <button>Logout</button>
           </Link>
-          <div>
-            <img src="/Images/logo3.png" alt="logo" />
-          </div>
+          <div>{/* <img src="/Images/logo4.png" alt="logo" /> */}</div>
         </div>
       </nav>
     </header>

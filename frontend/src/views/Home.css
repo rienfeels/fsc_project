@@ -105,11 +105,41 @@
 }
 
 @media screen and (max-width: 430px) {
+  .button {
+    padding: 0 8px; /* Reduce padding for smaller screens */
+    min-width: 9em; /* Slightly reduce the min-width */
+  }
+
   .button-top {
-    padding: 6px 12px; /* Adjust padding */
+    padding: 6px 12px; /* Adjust padding for the button top */
+    /* Additional adjustments to font-size or other properties if needed */
+  }
+
+  .button-top::after,
+  .button-bottom,
+  .button-base {
+    /* Ensure the pseudo-elements and the button bottom don't extend beyond the button's width */
+    width: 100%;
+    left: 0;
+    border-radius: 4px; /* Simplify the border-radius for a more consistent appearance */
+    padding: 0; /* Adjust padding if necessary */
+  }
+
+  .button:active .button-top,
+  .button:active .button-top::after {
+    /* Reduce the amount of translateY movement on active state for smaller screens */
+    transform: translateY(4px);
+  }
+
+  .button:active .button-bottom {
+    /* Adjust the border-radius for the active state of the button bottom */
+    border-radius: 8px;
   }
 
   .button-bottom {
-    width: calc(100% - 4px); /* Adjust width */
+    bottom: 2px; /* Adjust the position to ensure it's not too far from the base */
+    /* Update background gradients if necessary for a better visual appearance */
   }
+
+  /* If there are other elements that need to adjust, add them here */
 }

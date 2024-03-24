@@ -26,7 +26,7 @@ const UpdateForm = () => {
   const fetchReport = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8000/api/get-daily-report/${reportId}/`
+        `https://master-7rqtwti-zknwxgnexcf4w.us.platformsh.site/api/get-daily-report/${reportId}/`
       );
       if (response.ok) {
         const data = await response.json();
@@ -46,7 +46,7 @@ const UpdateForm = () => {
     e.preventDefault();
     try {
       const response = await fetch(
-        `http://localhost:8000/api/daily-reports/${reportId}/`,
+        `https://master-7rqtwti-zknwxgnexcf4w.us.platformsh.site/api/daily-reports/${reportId}/`,
         {
           method: "PUT",
           headers: {

@@ -18,6 +18,10 @@ const Home = () => {
 const LoggedInView = ({ user }) => {
   return (
     <div>
+      <h1>Welcome {user.username}</h1>
+      <div className="logo">
+        <img src="/Images/logo4.png" />
+      </div>
       <Link to="/daily-report-form">
         <button>Daily Report</button>
       </Link>
@@ -28,10 +32,6 @@ const LoggedInView = ({ user }) => {
         <button>Logout</button>
       </Link>
       {/* <h1>Fields Specialty Contractors Inc.</h1> */}
-      <div className="logo">
-        <img src="/Images/logo3.png" />
-      </div>
-      <h1>Welcome {user.username}</h1>
     </div>
   );
 };
@@ -42,7 +42,7 @@ export const LoggedOutView = ({ title = "Home" }) => {
       <h1>{title}</h1>
       <h1>Fields Specialty Contractors Inc.</h1>
       <div className="logo">
-        <img src="/public/Images/logo2.png" />
+        <img src="/Images/logo2.png" />
       </div>
       <Link to="/login">
         <button type="button" className="button">

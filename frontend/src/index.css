@@ -5,7 +5,19 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-image: linear-gradient(
+    to top,
+    #3f51b1 0%,
+    #5a55ae 13%,
+    #7b5fac 25%,
+    #8f6aae 38%,
+    #a86aa4 50%,
+    #cc6b8e 62%,
+    #f18271 75%,
+    #f3a469 87%,
+    #f7c978 100%
+  );
+  overflow-x: hidden;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,16 +25,18 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-  background-color: #518d96;
-  /* background-image: url("public/Images/business.png"); */
+.button-trio {
+  display: flex;
+  flex-direction: row;
+  width: 538px;
+  justify-content: space-evenly;
 }
 
 .selected-report-container {
   display: flex;
   flex-direction: column;
-  background: rgba(0, 0, 0, 0.093);
-
+  /* background: rgba(0, 0, 0, 0.093); */
+  background-image: url("/Images/business.png");
   border-radius: 10px;
   width: 40vw;
   height: 80vh;
@@ -34,6 +48,7 @@ body {
   display: flex;
   flex-direction: column;
   background: rgba(0, 0, 0, 0.341);
+
   border-radius: 10px;
   width: 40vw;
   padding-right: 30px;
@@ -106,6 +121,7 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   margin: 0;
   font-weight: 700;
 }
@@ -129,43 +145,155 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+.submit-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin-top: 20px; */
+}
+
+.submit-button {
+  background-color: transparent;
+  width: 13em;
+  height: 3.3em;
+  border: 2px solid #1abc9c;
+  border-radius: 25px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #1abc9c;
+  padding: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.submit-button .txt {
+  transition: 0.4s ease-in-out;
+  position: absolute;
+}
+
+.submit-button .txt2 {
+  transform: translateY(1em) scale(0);
+  color: #212121;
+  position: absolute;
+}
+
+.submit-button .loader-container {
+  height: 100%;
+  width: 100%;
+  background-color: transparent;
+  border-radius: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.submit-button .loader-container .loader {
+  height: 100%;
+  width: 100%;
+  background-color: #1abc9c;
+  border-radius: inherit;
+  transform: translateX(-13em);
+}
+
+.submit-button:focus {
+  transition: 0.4s ease-in-out 0.4s;
+  animation: scaling 1.5s ease-in-out 0s 1 both;
+}
+
+.submit-button:focus .txt {
+  position: absolute;
+  transform: translateY(-5em);
+  transition: 0.4s ease-in-out;
+}
+
+.submit-button:focus .txt2 {
+  transform: translateY(0) scale(1);
+  transition: 0.3s ease-in-out 1.7s;
+}
+
+.submit-button:focus .loader {
+  display: block;
+  transform: translate(0);
+  transition: 0.8s cubic-bezier(0, 0.4, 1, 0.28) 0.4s;
+  animation: loading;
+}
+
+@keyframes scaling {
+  20% {
+    height: 1.5em;
   }
-  a:hover {
-    color: #747bff;
+
+  80% {
+    height: 1.5em;
   }
-  button {
-    background-color: #f9f9f9;
+
+  100% {
+    height: 3.3em;
   }
 }
 
 @media screen and (max-width: 430px) {
-  :root {
-    font-size: 14px; /* Adjust base font size */
+  .button-trio {
+    /* Instead of a fixed width, allow the buttons to wrap as needed */
+    width: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px; /* Adds space between buttons when they wrap */
   }
 
   .selected-report-container,
-  .report-container {
-    width: 90vw; /* Use viewport width */
-    height: auto; /* Adjust height dynamically */
-    padding-right: 15px; /* Adjust padding */
-  }
-
+  .report-container,
   .form-container {
-    width: 90vw; /* Adjust width */
-    height: auto; /* Make height dynamic */
+    /* Use the full viewport width minus some margin */
+    width: calc(100vw - 20px);
+    max-width: none; /* Overrides any max-width that might be set elsewhere */
+    height: auto; /* Height should be automatic to fit content */
+    padding: 15px; /* Adjust padding */
+    overflow-y: auto; /* Ensures content can scroll if taller than the screen */
   }
 
-  .form-input-container,
   .background-image img {
-    width: 100%; /* Full width */
+    right: 0; /* Ensure the image fits the screen */
+    opacity: 0.45;
+  }
+
+  .form-label,
+  .form-input,
+  .form-input-container {
+    /* Adjust form elements for a smaller screen */
+    flex-direction: column;
+    align-items: flex-start;
+    width: auto; /* Let the elements take as much width as needed */
+    margin: 10px; /* Add some margin */
   }
 
   body {
-    display: block; /* Stack elements vertically */
-    place-items: initial;
+    /* Adjust the body to align items in a column fashion and center them */
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  h1 {
+    /* Scale down the font size for smaller devices */
+    font-size: 2em;
+  }
+
+  .submit-button {
+    /* Adjust the submit button size to fit smaller screens */
+    width: auto;
+    height: auto;
+    padding: 10px; /* Add padding to increase touch target size */
+  }
+
+  .submit-button .loader-container .loader {
+    /* Ensure loader fits within the button */
+    transform: translateX(-100%);
   }
 }

@@ -29,13 +29,16 @@ const DailyReportForm = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("http://localhost:8000/api/daily-reports/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        "https://master-7rqtwti-zknwxgnexcf4w.us.platformsh.site/api/daily-reports/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       if (response.ok) {
         console.log("Report submitted successfully");
@@ -553,7 +556,6 @@ const DailyReportForm = () => {
 
   return (
     <div>
-      <Headers />
       <div className="form-container">
         <form onSubmit={handleSubmit}>
           <div className="form-input-container">
@@ -695,12 +697,35 @@ const DailyReportForm = () => {
             />
           </div>
           {renderInputs()}
-          <button type="submit" disabled={isSubmitting}>
-            {isSubmitting ? "Submitting..." : "Submit"}
-          </button>
+          <div className="submit-div">
+            <button
+              className="submit-button"
+              type="submit"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? (
+                <>
+                  <span className="txt">Submitting...</span>
+                  <span className="loader-container">
+                    <span className="loader"></span>
+                  </span>
+                </>
+              ) : (
+                <span className="txt">Submit</span>
+              )}
+              <span
+                className="txt2"
+                style={{ visibility: isSubmitting ? "hidden" : "visible" }}
+              >
+                sent!
+              </span>
+            </button>
+          </div>
+
           {submissionError && <p className="error">{submissionError}</p>}
         </form>
       </div>
+      <Headers />
     </div>
   );
 };

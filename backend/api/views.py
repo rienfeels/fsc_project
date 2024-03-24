@@ -12,6 +12,7 @@ from rest_framework.decorators import api_view, permission_classes
 from .models import DailyReport
 from .serializer import DailyReportSerializer
 import json
+from django_filters.rest_framework import DjangoFilterBackend
 from reportlab.pdfgen import canvas
 
 
@@ -28,6 +29,8 @@ class DailyReportListCreate(generics.ListCreateAPIView):
     queryset = DailyReport.objects.all()
     permission_classes = (AllowAny,)
     serializer_class = DailyReportSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['road_name', 'contractor', 'date_submitted'], 
 
 
 

@@ -1,1 +1,2 @@
-export const API_BASE_URL = "http://0.0.0.0:8000/api/";
+export const API_BASE_URL =
+  "https://master-7rqtwti-zknwxgnexcf4w.us.platformsh.site/api/";
