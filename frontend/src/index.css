@@ -221,7 +221,7 @@ button:focus-visible {
 .submit-button.animating .loader-container .loader {
   display: block;
   transform: translate(0);
-  transition: 0.8s cubic-bezier(0, 0.4, 1, 0.28) 0.4s;
+  transition: 2s cubic-bezier(0, 0.4, 1, 0.28) 0.4s;
   animation: loading;
 }
 

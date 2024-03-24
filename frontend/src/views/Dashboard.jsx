@@ -291,7 +291,6 @@ const Dashboard = () => {
 
   return (
     <div>
-      <Header />
       <h2>Daily Reports Dashboard</h2>
 
       <div className="report-container">
@@ -386,6 +385,7 @@ const Dashboard = () => {
           </div>
         )}
       </div>
+      <Header />
     </div>
   );
 };
