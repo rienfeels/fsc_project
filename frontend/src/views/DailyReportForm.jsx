@@ -27,6 +27,11 @@ const DailyReportForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    document.querySelector(".submit-button").classList.add("animating");
+
+    setTimeout(() => {
+      document.querySelector(".submit-button").classList.remove("animating");
+    }, 2200);
 
     try {
       const response = await fetch(

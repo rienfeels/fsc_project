@@ -61,6 +61,7 @@
   background: rgba(0, 0, 0, 0.385);
   background-image: url("/Images/business.png");
   background-position: top;
+  backdrop-filter: blur(10px);
   border-radius: 10px;
   width: 50vw;
   height: 80vh;
@@ -206,18 +207,18 @@ button:focus-visible {
   animation: scaling 1.5s ease-in-out 0s 1 both;
 }
 
-.submit-button:focus .txt {
+.submit-button.animating .txt {
   position: absolute;
   transform: translateY(-5em);
   transition: 0.4s ease-in-out;
 }
 
-.submit-button:focus .txt2 {
+.submit-button.animating .txt2 {
   transform: translateY(0) scale(1);
   transition: 0.3s ease-in-out 1.7s;
 }
 
-.submit-button:focus .loader {
+.submit-button.animating .loader-container .loader {
   display: block;
   transform: translate(0);
   transition: 0.8s cubic-bezier(0, 0.4, 1, 0.28) 0.4s;
