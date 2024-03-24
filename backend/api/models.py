@@ -7,7 +7,7 @@ class DailyReport(models.Model):
     date_submitted = models.DateTimeField(auto_now_add=True)
     road_name = models.CharField(max_length=255, default='')
     contractor = models.CharField(max_length=255, default='')
-    workers = models.CharField()
+    workers = models.CharField(max_length=255, default='')
     job_time_arrived = models.TimeField()
     job_time_finished = models.TimeField()
     color = models.CharField(max_length=20)  # "white" or "yellow"
