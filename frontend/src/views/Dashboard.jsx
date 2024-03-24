@@ -52,7 +52,7 @@ const Dashboard = () => {
 
     try {
       const response = await fetch(
-        "https://master-7rqtwti-zknwxgnexcf4w.us.platformsh.site/api/daily-reports/?${queryString}"
+        "https://master-7rqtwti-zknwxgnexcf4w.us.platformsh.site/api/daily-reports/"
       );
       if (response.ok) {
         const data = await response.json();
