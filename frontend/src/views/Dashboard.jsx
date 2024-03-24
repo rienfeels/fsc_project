@@ -42,17 +42,9 @@ const Dashboard = () => {
   };
 
   const fetchDailyReports = async () => {
-    const queryString = Object.entries(filters)
-      .filter(([_, value]) => value)
-      .map(
-        ([key, value]) =>
-          `${encodeURIComponent(key)}=${encodeURIComponent(value)}`
-      )
-      .join("&");
-
     try {
       const response = await fetch(
-        `https://master-7rqtwti-zknwxgnexcf4w.us.platformsh.site/api/daily-reports/?${queryString}`
+        "https://master-7rqtwti-zknwxgnexcf4w.us.platformsh.site/api/daily-reports/"
       );
       if (response.ok) {
         const data = await response.json();
@@ -301,33 +293,6 @@ const Dashboard = () => {
     <div>
       <Header />
       <h2>Daily Reports Dashboard</h2>
-      <div className="filter-container">
-        <input
-          type="text"
-          placeholder="Road Name"
-          value={filters.road_name}
-          onChange={(e) =>
-            setFilters({ ...filters, road_name: e.target.value })
-          }
-        />
-        <input
-          type="text"
-          placeholder="Contractor"
-          value={filters.contractor}
-          onChange={(e) =>
-            setFilters({ ...filters, contractor: e.target.value })
-          }
-        />
-        <input
-          type="date"
-          placeholder="Date Submitted"
-          value={filters.date_submitted}
-          onChange={(e) =>
-            setFilters({ ...filters, date_submitted: e.target.value })
-          }
-        />
-        <button onClick={fetchDailyReports}>Apply Filters</button>
-      </div>
 
       <div className="report-container">
         <h3>Daily Reports</h3>
