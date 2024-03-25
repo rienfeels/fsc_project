@@ -1,10 +1,11 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
-  font-weight: 400;
+  font-weight: bold;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: #ffffff;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
   background-image: linear-gradient(
     to top,
     #3f51b1 0%,
@@ -21,7 +22,7 @@
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
+  /* -webkit-font-smoothing: antialiased; */
   -moz-osx-font-smoothing: grayscale;
 }
 
@@ -47,7 +48,7 @@
 .report-container {
   display: flex;
   flex-direction: column;
-  background: rgba(0, 0, 0, 0.341);
+  background: rgba(255, 255, 255, 20%);
 
   border-radius: 10px;
   width: 40vw;
@@ -58,8 +59,15 @@
 .form-container {
   display: flex;
   flex-direction: column;
-  background: rgba(0, 0, 0, 0.385);
+  background: rgba(255, 255, 255, 20%);
   background-image: url("/Images/business.png");
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.3
+  ); /* This adds a white tint; adjust the opacity as needed */
+
   background-position: top;
   backdrop-filter: blur(10px);
   border-radius: 10px;
@@ -221,7 +229,7 @@ button:focus-visible {
 .submit-button.animating .loader-container .loader {
   display: block;
   transform: translate(0);
-  transition: 2s cubic-bezier(0, 0.4, 1, 0.28) 0.4s;
+  transition: transform 2s ease;
   animation: loading;
 }
 

@@ -33,7 +33,7 @@ const DailyReportForm = () => {
     setTimeout(() => {
       submitButton.classList.remove("animating");
       setIsSubmitting(false);
-    }, 3000);
+    }, 2000);
 
     try {
       const response = await fetch(

@@ -68,6 +68,7 @@ def testEndPoint(request):
 
 @api_view(['GET'])
 def daily_reports_list(request):
+    print(request.query_params)
     daily_reports = DailyReport.objects.all()
     serializer = DailyReportSerializer(daily_reports, many=True)
     return Response(serializer.data)
