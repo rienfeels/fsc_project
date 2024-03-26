@@ -17,10 +17,10 @@ const Home = () => {
 
 const LoggedInView = ({ user }) => {
   return (
-    <div>
+    <div className="home-div">
       <h1>Welcome {user.username}</h1>
       <div className="logo">
-        <img src="/Images/logo4.png" />
+        <img src="/Images/logo4.png" className="logo-img" />
       </div>
       <div className="header-btn-container">
         <Link to="/daily-report-form">
@@ -40,29 +40,30 @@ const LoggedInView = ({ user }) => {
 
 export const LoggedOutView = ({ title = "Home" }) => {
   return (
-    <div>
+    <div className="home-div">
       {/* <div className="header-btn-container"> */}
       <div className="logo2">
-        <img src="/Images/truck.png" />
+        <img src="/Images/truck.png" className="logo-img2" />
       </div>
       <h1>{title}</h1>
       <h1>Fields Specialty Contractors Inc.</h1>
-      <Link to="/login">
-        <button type="button" className="button">
-          <div className="button-top">Login</div>
-          <div className="button-bottom"></div>
-          <div className="button-base"></div>
-        </button>
-      </Link>
-      <Link to="/register">
-        <button type="button" className="button">
-          <div className="button-top">Register</div>
-          <div className="button-bottom"></div>
-          <div className="button-base"></div>
-        </button>
-      </Link>
+      <div className="login-div">
+        <Link to="/login">
+          <button type="button" className="button">
+            <div className="button-top">Login</div>
+            <div className="button-bottom"></div>
+            <div className="button-base"></div>
+          </button>
+        </Link>
+        <Link to="/register">
+          <button type="button" className="button">
+            <div className="button-top">Register</div>
+            <div className="button-bottom"></div>
+            <div className="button-base"></div>
+          </button>
+        </Link>
+      </div>
     </div>
-    // </div>
   );
 };
 

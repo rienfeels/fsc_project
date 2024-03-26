@@ -143,3 +143,24 @@
 
   /* If there are other elements that need to adjust, add them here */
 }
+
+.home-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+}
+
+.logo-img {
+  width: 20rem;
+  height: 20rem;
+  margin: 0 auto;
+}
+
+.logo-img2 {
+  width: 22rem;
+  height: 20rem;
+  /* margin: 0 auto; */
+  filter: grayscale(100%);
+}
