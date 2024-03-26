@@ -5,15 +5,15 @@ const Headers = () => {
   return (
     <header>
       <nav>
-        <div className="header-buttons">
+        <div className="header-btn-container">
           <Link to="/">
-            <button>Home</button>
+            <button className="header-btn">Home</button>
           </Link>
           <Link to="/dashboard">
-            <button>Dashboard</button>
+            <button className="header-btn">Dashboard</button>
           </Link>
           <Link to="/logout">
-            <button>Logout</button>
+            <button className="header-btn">Logout</button>
           </Link>
         </div>
       </nav>

@@ -8,7 +8,8 @@
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(2, 2, 2, 33%); /* Soft shadow */
   padding: 10px;
-  margin: 5px;
+  overflow: hidden;
+  margin: 30px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -31,6 +32,14 @@
 .button__text {
   display: flex;
   justify-content: center;
+}
+
+.header-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  margin-left: 35px;
 }
 
 .button2 {

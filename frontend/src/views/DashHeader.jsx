@@ -5,17 +5,16 @@ const Header = () => {
   return (
     <header>
       <nav>
-        <div className="header-buttons">
+        <div className="header-btn-container">
           <Link to="/">
-            <button>Home</button>
+            <button className="header-btn">Home</button>
           </Link>
           <Link to="/daily-report-form">
-            <button>Daily Report</button>
+            <button className="header-btn">Daily Report</button>
           </Link>
           <Link to="/logout">
-            <button>Logout</button>
+            <button className="header-btn">Logout</button>
           </Link>
-          <div>{/* <img src="/Images/logo4.png" alt="logo" /> */}</div>
         </div>
       </nav>
     </header>

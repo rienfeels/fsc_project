@@ -10,9 +10,9 @@ class DailyReport(models.Model):
     workers = models.CharField(max_length=255, default='')
     job_time_arrived = models.TimeField()
     job_time_finished = models.TimeField()
-    color = models.CharField(max_length=20)  # "white" or "yellow"
-    material = models.CharField(max_length=10)  # "paint" or "thermo"
-    line_type = models.CharField(max_length=10,default='', blank=True)  # "solid" or "skip"
+    color = models.CharField(max_length=20) 
+    material = models.CharField(max_length=10)  
+    line_type = models.CharField(max_length=10,default='', blank=True)  
     white_line_type = models.CharField(max_length=10, default='', blank=True)
     yellow_line_type = models.CharField(max_length=10, default='', blank=True)
     white_solid_footage = models.DecimalField(max_digits=10, decimal_places=2, default=0, blank=True, null=True)

@@ -14,7 +14,7 @@ const UpdateForm = () => {
     material: "",
     dot_employee: false,
   };
-  const [report, setReport] = useState({});
+  // const [report, setReport] = useState({});
   const [formData, setFormData] = useState(initialFormData);
   const [submissionError, setSubmissionError] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -52,7 +52,7 @@ const UpdateForm = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(report),
+          body: JSON.stringify(formData),
         }
       );
       if (response.ok) {
@@ -66,8 +66,10 @@ const UpdateForm = () => {
   };
 
   const handleChange = (e) => {
+    console.log("change handler called");
     const { name, value } = e.target;
-    setReport((prevReport) => ({
+    console.log(name, value);
+    setFormData((prevReport) => ({
       ...prevReport,
       [name]: value,
     }));

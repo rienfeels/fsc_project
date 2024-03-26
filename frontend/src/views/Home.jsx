@@ -22,16 +22,18 @@ const LoggedInView = ({ user }) => {
       <div className="logo">
         <img src="/Images/logo4.png" />
       </div>
-      <Link to="/daily-report-form">
-        <button>Daily Report</button>
-      </Link>
-      <Link to="/dashboard">
-        <button>Dashboard</button>
-      </Link>
-      <Link to="/logout">
-        <button>Logout</button>
-      </Link>
-      {/* <h1>Fields Specialty Contractors Inc.</h1> */}
+      <div className="header-btn-container">
+        <Link to="/daily-report-form">
+          <button className="header-btn">Daily Report</button>
+        </Link>
+        <Link to="/dashboard">
+          <button className="header-btn">Dashboard</button>
+        </Link>
+        <Link to="/logout">
+          <button className="header-btn">Logout</button>
+        </Link>
+        {/* <h1>Fields Specialty Contractors Inc.</h1> */}
+      </div>
     </div>
   );
 };
@@ -39,11 +41,12 @@ const LoggedInView = ({ user }) => {
 export const LoggedOutView = ({ title = "Home" }) => {
   return (
     <div>
+      {/* <div className="header-btn-container"> */}
+      <div className="logo2">
+        <img src="/Images/truck.png" />
+      </div>
       <h1>{title}</h1>
       <h1>Fields Specialty Contractors Inc.</h1>
-      <div className="logo">
-        <img src="/Images/logo2.png" />
-      </div>
       <Link to="/login">
         <button type="button" className="button">
           <div className="button-top">Login</div>
@@ -59,6 +62,7 @@ export const LoggedOutView = ({ title = "Home" }) => {
         </button>
       </Link>
     </div>
+    // </div>
   );
 };
 

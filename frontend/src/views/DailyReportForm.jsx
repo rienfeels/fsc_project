@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Headers from "./ReportHeader";
+import { useNavigate } from "react-router-dom";
 // import { useHistory } from "react-router-dom";
 
 const DailyReportForm = () => {
@@ -18,6 +19,7 @@ const DailyReportForm = () => {
     // yellow_size: "",
     dot_employee: false,
   };
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState(initialFormData);
   const [submissionError, setSubmissionError] = useState(null);
@@ -50,7 +52,7 @@ const DailyReportForm = () => {
       if (response.ok) {
         console.log("Report submitted successfully");
         setFormData(initialFormData);
-        // history.push("/dashboard");
+        navigate("/dashboard");
       } else {
         const errorData = await response.json();
         throw new Error(errorData.detail || "Something went wrong");
@@ -364,24 +366,24 @@ const DailyReportForm = () => {
           {formData.white_line_type === "skip" && (
             <>
               <div className="form-input-container">
-                <label htmlFor="white_footage">White Footage:</label>
+                <label htmlFor="white_skip_footage">White Skip Footage:</label>
                 <input
                   className="form-input"
                   type="number"
-                  id="white_footage"
-                  name="white_footage"
-                  value={formData.white_footage}
+                  id="white_skip_footage"
+                  name="white_skip_footage"
+                  value={formData.white_skip_footage}
                   onChange={handleChange}
                 />
               </div>
               <div className="form-input-container">
-                <label htmlFor="white_size">White Size:</label>
+                <label htmlFor="white_skip_size">White Skip Size:</label>
                 <input
                   className="form-input"
                   type="text"
-                  id="white_size"
-                  name="white_size"
-                  value={formData.white_size}
+                  id="white_skip_size"
+                  name="white_skip_size"
+                  value={formData.white_skip_size}
                   onChange={handleChange}
                 />
               </div>
@@ -710,22 +712,9 @@ const DailyReportForm = () => {
               type="submit"
               disabled={isSubmitting}
             >
-              {isSubmitting ? (
-                <>
-                  <span className="txt">Submitting...</span>
-                  <span className="loader-container">
-                    <span className="loader"></span>
-                  </span>
-                </>
-              ) : (
-                <span className="txt">Submit</span>
-              )}
-              <span
-                className="txt2"
-                style={{ visibility: isSubmitting ? "hidden" : "visible" }}
-              >
-                sent!
-              </span>
+              <p className="submit-p">
+                {isSubmitting ? "Submitting..." : "Submit"}
+              </p>
             </button>
           </div>
 

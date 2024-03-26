@@ -113,13 +113,15 @@ const Dashboard = () => {
               >
                 {" "}
                 <span>{report.road_name}</span>
-                {"  |  "}
+                {"   |   "}
                 <span>{formatDate(report.date_submitted)}</span>
-                {"  |  "}
-                <span>{report.contractor}</span> <span>{report.workers}</span>
-                {"  |  "}
+                {"   |   "}
+                <span>{report.contractor}</span>
+                {"   |   "}
+                <span>{report.workers}</span>
+                {"   |   "}
                 <span>{formatTime(report.job_time_arrived)}</span>
-                {"  |  "}
+                {"   |   "}
                 <span>{formatTime(report.job_time_finished)}</span>
               </li>
             ))}
@@ -294,7 +296,7 @@ const Dashboard = () => {
       <h2>Daily Reports Dashboard</h2>
 
       <div className="report-container">
-        <h3>Daily Reports</h3>
+        {/* <h3>Daily Reports</h3> */}
         {renderReportList()}
         {renderSelectedReport()}
         {selectedReport && (
