@@ -12,6 +12,8 @@ const Dashboard = () => {
     date_submitted: "",
     contractor: "",
   });
+  const [filterType, setFilterType] = useState("road_name");
+  const [selectedFilterType, setSelectedFilterType] = useState("road_name");
 
   useEffect(() => {
     fetchDailyReports();
@@ -99,13 +101,66 @@ const Dashboard = () => {
     return `${formattedHours}:${minutes.toString().padStart(2, "0")} ${suffix}`;
   };
 
+  const formatDateForFilter = (dateString) => {
+    const date = new Date(dateString);
+    const month = date.getMonth() + 1; // Months are 0-based
+    const day = date.getDate();
+    const year = date.getFullYear();
+    return `${year}-${month.toString().padStart(2, "0")}-${day.toString().padStart(2, "0")}`;
+  };
+
+  const handleDateChange = (e) => {
+    const newDate = e.target.valueAsDate;
+    const formattedDate = newDate.toISOString().split("T")[0];
+
+    setFilters({
+      ...filters,
+      date_submitted: formattedDate,
+    });
+  };
+
   const renderReportList = () => {
+    const filteredReports = dailyReports.filter((report) => {
+      switch (selectedFilterType) {
+        case "road_name":
+          return (
+            filters.road_name === "" ||
+            report.road_name
+              .toLowerCase()
+              .includes(filters.road_name.toLowerCase())
+          );
+        case "contractor":
+          return (
+            filters.contractor === "" ||
+            report.contractor
+              .toLowerCase()
+              .includes(filters.contractor.toLowerCase())
+          );
+        case "date_submitted":
+          if (filters.date_submitted === "") {
+            return true;
+          } else {
+            // Convert both dates to a comparable format
+            const inputDate = new Date(filters.date_submitted);
+            const reportDate = new Date(report.date_submitted);
+            // Format both dates using formatDate
+            const formattedInputDate = formatDate(
+              inputDate.toISOString().split("T")[0]
+            );
+            const formattedReportDate = formatDate(report.date_submitted);
+            return formattedReportDate === formattedInputDate;
+          }
+        default:
+          return true; // Always return true if the filter type doesn't match expected cases to ensure no unintended filtering.
+      }
+    });
+
     return (
       <div>
         <div className="card-container">
           <ul>
             {" "}
-            {dailyReports.map((report) => (
+            {filteredReports.map((report) => (
               <li
                 key={report.id}
                 onClick={() => handleReportClick(report)}
@@ -296,6 +351,48 @@ const Dashboard = () => {
       <h2>Daily Reports Dashboard</h2>
 
       <div className="report-container">
+        <div className="filter-container">
+          <select
+            value={selectedFilterType}
+            onChange={(e) => setSelectedFilterType(e.target.value)}
+          >
+            <option value="road_name">Road Name</option>
+            <option value="contractor">Contractor</option>
+            <option value="date_submitted">Date Submitted</option>
+          </select>
+
+          {selectedFilterType === "road_name" && (
+            <input
+              type="text"
+              placeholder="Road Name"
+              value={filters.road_name}
+              onChange={(e) =>
+                setFilters({ ...filters, road_name: e.target.value })
+              }
+            />
+          )}
+
+          {selectedFilterType === "date_submitted" && (
+            <input
+              type="date"
+              placeholder="Date Submitted"
+              value={filters.date_submitted}
+              onChange={handleDateChange}
+            />
+          )}
+
+          {selectedFilterType === "contractor" && (
+            <input
+              type="text"
+              placeholder="Contractor"
+              value={filters.contractor}
+              onChange={(e) =>
+                setFilters({ ...filters, contractor: e.target.value })
+              }
+            />
+          )}
+        </div>
+
         {/* <h3>Daily Reports</h3> */}
         {renderReportList()}
         {renderSelectedReport()}

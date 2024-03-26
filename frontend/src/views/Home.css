@@ -147,7 +147,7 @@
 .home-div {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   height: 60vh;
 }
@@ -160,7 +160,7 @@
 
 .logo-img2 {
   width: 22rem;
-  height: 20rem;
+  /* height: 20rem; */
   /* margin: 0 auto; */
   filter: grayscale(100%);
 }
