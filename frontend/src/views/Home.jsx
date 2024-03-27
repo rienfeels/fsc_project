@@ -47,19 +47,15 @@ export const LoggedOutView = ({ title = "Home" }) => {
       </div>
       <h1>{title}</h1>
       <h1>Fields Specialty Contractors Inc.</h1>
-      <div className="login-div">
+      <div className="header-btn-container">
         <Link to="/login">
-          <button type="button" className="button">
-            <div className="button-top">Login</div>
-            <div className="button-bottom"></div>
-            <div className="button-base"></div>
+          <button type="button" className="header-btn">
+            <div>Login</div>
           </button>
         </Link>
         <Link to="/register">
-          <button type="button" className="button">
-            <div className="button-top">Register</div>
-            <div className="button-bottom"></div>
-            <div className="button-base"></div>
+          <button type="button" className="header-btn">
+            <div>Register</div>
           </button>
         </Link>
       </div>

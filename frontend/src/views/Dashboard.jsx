@@ -121,6 +121,7 @@ const Dashboard = () => {
 
   const renderReportList = () => {
     const filteredReports = dailyReports.filter((report) => {
+      console.log(report);
       switch (selectedFilterType) {
         case "road_name":
           return (
@@ -141,14 +142,22 @@ const Dashboard = () => {
             return true;
           } else {
             // Convert both dates to a comparable format
-            const inputDate = new Date(filters.date_submitted);
+
+            const selectedDate = new Date(filters.date_submitted);
             const reportDate = new Date(report.date_submitted);
-            // Format both dates using formatDate
-            const formattedInputDate = formatDate(
-              inputDate.toISOString().split("T")[0]
+
+            const timezone = selectedDate.getTimezoneOffset();
+            const compareDate = new Date(
+              selectedDate.getTime() + timezone * 60000
             );
-            const formattedReportDate = formatDate(report.date_submitted);
-            return formattedReportDate === formattedInputDate;
+            // const formattedInputDate = formatDate(
+            //   selectedDate.toISOString().split("T")[0]
+            // );
+
+            // const formattedReportDate = formatDate(report.date_submitted);
+            console.log("comparedDate", formatDate(compareDate));
+            console.log("reportDate", formatDate(reportDate));
+            return formatDate(reportDate) <= formatDate(compareDate);
           }
         default:
           return true; // Always return true if the filter type doesn't match expected cases to ensure no unintended filtering.

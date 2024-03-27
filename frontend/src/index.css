@@ -6,7 +6,7 @@
   color-scheme: light dark;
   color: #ffffff;
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
     to top,
     #3f51b1 0%,
     #5a55ae 13%,
@@ -17,13 +17,75 @@
     #f18271 75%,
     #f3a469 87%,
     #f7c978 100%
-  );
+  ); */
+  --aurora-gradient-1: #0f0c29, #302b63, #24243e, #5390d9, #a6cfd5;
+  --aurora-gradient-2: #020111, #3a3a52, #5c258d, #4389a2, #c8cbb8;
+  --aurora-gradient-3: #0f0c29, #233674, #883997, #d14770, #f79459;
+  --aurora-gradient-4: #4e4376, #2b5876, #4e4376, #1e3c72, #2a5298;
   overflow-x: hidden;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   /* -webkit-font-smoothing: antialiased; */
   -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  --duration: 60s; /* Total duration of one full cycle */
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background-size: cover;
+  background-image: linear-gradient(
+    to top,
+    var(--aurora-gradient-1)
+  ); /* Directly applied to body */
+  position: relative;
+  overflow: hidden;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  animation: fade 60s ease-in-out infinite;
+  z-index: -1;
+}
+
+body::before {
+  background-image: linear-gradient(to top, var(--aurora-gradient-2));
+}
+
+body::after {
+  background-image: linear-gradient(to top, var(--aurora-gradient-4));
+  animation-delay: 20s; /* Offsets the start of the animation */
+}
+
+@keyframes fade {
+  0%,
+  33.333%,
+  66.666%,
+  100% {
+    opacity: 0;
+  }
+  16.666%,
+  50%,
+  83.333% {
+    opacity: 1;
+  }
+}
+
+input,
+select,
+textarea {
+  font-size: 16px; /* Minimum size to prevent zoom on iPhone */
 }
 
 .header-btn {
@@ -223,14 +285,6 @@ a:hover {
   color: #535bf2;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
@@ -321,7 +375,7 @@ button:focus-visible {
   opacity: 0%;
 }
 
-@media screen and (max-width: 430px) {
+@media screen and (max-width: 600px) {
   .button-trio {
     /* Instead of a fixed width, allow the buttons to wrap as needed */
     width: auto;
@@ -332,18 +386,20 @@ button:focus-visible {
 
   .form-input-container {
     flex-direction: row;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
   }
 
   .form-label,
   .form-input {
-    width: 100%;
-    margin: 0 10px;
+    /* width: 100%; */
+    /* margin: 0 10px; */
     justify-content: flex-start;
   }
 
-  .form-input {
-    margin-top: 5px;
+  .form-input,
+  .form-select,
+  .form-textarea {
+    font-size: 16px;
   }
 
   .selected-report-container,
@@ -367,9 +423,9 @@ button:focus-visible {
   .form-input-container {
     /* Adjust form elements for a smaller screen */
     /* flex-direction: column; */
-    align-items: flex-start;
+    /* align-items: flex-start; */
     width: auto; /* Let the elements take as much width as needed */
-    margin: 10px; /* Add some margin */
+    /* margin: 10px; Add some margin */
   }
 
   body {
