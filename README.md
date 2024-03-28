@@ -1,5 +1,5 @@
 # FSC Inc. App
-
+https://fscapp.netlify.app/
 # Overview
 FSC Inc. App is an innovative solution designed to streamline the workflow for road striping crews. With a focus on efficiency, accuracy, and user-friendly mobile first design, FSC Inc. App empowers employees and management within the road striping industry to effortlessly submit their daily reports and manage them on a dashboard. This platform caters to the specific needs of road striping personnel, offering features like authenticated user creation, form submission, and mobile-friendly dashboards.
 
