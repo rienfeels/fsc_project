@@ -177,9 +177,9 @@ textarea {
   /* background-image: url("/Images/business.png"); */
   border-radius: 10px;
   width: 40vw;
-  height: 80vh;
+  /* height: 80vh; */
   padding-right: 30px;
-  overflow: scroll;
+  /* overflow: scroll; */
 }
 
 .report-container {
@@ -248,7 +248,7 @@ textarea {
   display: flex;
   justify-content: space-between;
   width: 50vw;
-  height: 30px;
+  /* height: 30px; */
   align-items: center;
   border-bottom: 1px solid white;
   flex-direction: row;
