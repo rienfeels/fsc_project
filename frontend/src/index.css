@@ -364,6 +364,10 @@ button:focus-visible {
     gap: 10px; /* Adds space between buttons when they wrap */
   }
 
+  .report-container {
+    overflow: scroll;
+  }
+
   .form-input-container {
     flex-direction: row;
     padding-bottom: 20px;
@@ -393,7 +397,7 @@ button:focus-visible {
     max-width: none; /* Overrides any max-width that might be set elsewhere */
     /* height: auto; Height should be automatic to fit content */
     /* padding: 15px; Adjust padding */
-    overflow: scroll; /* Ensures content can scroll if taller than the screen */
+    /* overflow: scroll; Ensures content can scroll if taller than the screen */
   }
 
   .background-image img {
