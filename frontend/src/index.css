@@ -366,6 +366,9 @@ button:focus-visible {
 
   .form-input-container {
     flex-direction: row;
+    padding-bottom: 20px;
+    margin-bottom: 25px;
+
     /* margin-bottom: 20px; */
   }
 
