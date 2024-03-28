@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import Header from "./DashHeader";
 import "./Dashboard.css"; // Import CSS file for styles
@@ -14,6 +14,7 @@ const Dashboard = () => {
   });
   const [filterType, setFilterType] = useState("road_name");
   const [selectedFilterType, setSelectedFilterType] = useState("road_name");
+  const selectedReportRef = useRef(null);
 
   useEffect(() => {
     fetchDailyReports();
@@ -84,6 +85,13 @@ const Dashboard = () => {
 
   const handleReportClick = (report) => {
     setSelectedReport(report);
+    // Ensure the element is scrolled into view after it has been updated
+    setTimeout(() => {
+      selectedReportRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }, 0);
   };
 
   const formatDate = (dateString) => {
@@ -198,7 +206,7 @@ const Dashboard = () => {
   const renderSelectedReport = () => {
     if (selectedReport) {
       return (
-        <div>
+        <div ref={selectedReportRef}>
           <div className="selected-report-container">
             <h3>Selected Report</h3>
             <p>Date Submitted: {formatDate(selectedReport.date_submitted)}</p>
@@ -358,7 +366,7 @@ const Dashboard = () => {
   return (
     <div>
       <h2>Daily Reports Dashboard</h2>
-
+      <Header />
       <div className="report-container">
         <div className="filter-container">
           <select
@@ -493,7 +501,6 @@ const Dashboard = () => {
           </div>
         )}
       </div>
-      <Header />
     </div>
   );
 };

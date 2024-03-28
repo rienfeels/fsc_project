@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Headers from "./ReportHeader";
 import { useNavigate } from "react-router-dom";
+import Header from "./DashHeader";
 // import { useHistory } from "react-router-dom";
 
 const DailyReportForm = () => {
@@ -565,6 +566,7 @@ const DailyReportForm = () => {
 
   return (
     <div>
+      <Headers />
       <div className="form-container">
         <form onSubmit={handleSubmit}>
           <div className="form-input-container">
@@ -721,7 +723,6 @@ const DailyReportForm = () => {
           {submissionError && <p className="error">{submissionError}</p>}
         </form>
       </div>
-      <Headers />
     </div>
   );
 };

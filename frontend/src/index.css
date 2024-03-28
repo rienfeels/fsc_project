@@ -164,29 +164,9 @@ textarea {
     rgba(27, 133, 219, 0.5) 5px 10px 15px;
 }
 
-/* .header-btn {
-  outline: 0 !important;
-  border: 0 !important;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  transition: all ease-in-out 0.3s;
-  cursor: pointer;
-}
-
-.header-btn:hover {
-  transform: translate(-3px);
-} */
-
 .button-trio {
   display: flex;
   flex-direction: row;
-  width: 538px;
   justify-content: space-evenly;
 }
 

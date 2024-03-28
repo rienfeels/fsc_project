@@ -6,14 +6,14 @@ const Header = () => {
     <header>
       <nav>
         <div className="header-btn-container">
+          <Link to="/logout">
+            <button className="header-btn">Logout</button>
+          </Link>
           <Link to="/">
             <button className="header-btn">Home</button>
           </Link>
           <Link to="/daily-report-form">
             <button className="header-btn">Daily Report</button>
-          </Link>
-          <Link to="/logout">
-            <button className="header-btn">Logout</button>
           </Link>
         </div>
       </nav>

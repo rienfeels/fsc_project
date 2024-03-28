@@ -23,14 +23,14 @@ const LoggedInView = ({ user }) => {
         <img src="/Images/logo4.png" className="logo-img" />
       </div>
       <div className="header-btn-container">
+        <Link to="/logout">
+          <button className="header-btn">Logout</button>
+        </Link>
         <Link to="/daily-report-form">
           <button className="header-btn">Daily Report</button>
         </Link>
         <Link to="/dashboard">
           <button className="header-btn">Dashboard</button>
-        </Link>
-        <Link to="/logout">
-          <button className="header-btn">Logout</button>
         </Link>
         {/* <h1>Fields Specialty Contractors Inc.</h1> */}
       </div>
