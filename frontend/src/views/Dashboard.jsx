@@ -163,7 +163,7 @@ const Dashboard = () => {
             // );
 
             // const formattedReportDate = formatDate(report.date_submitted);
-            return formatDate(reportDate) = formatDate(compareDate);
+            return formatDate(reportDate) === formatDate(compareDate);
           }
         default:
           return true; // Always return true if the filter type doesn't match expected cases to ensure no unintended filtering.
