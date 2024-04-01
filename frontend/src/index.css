@@ -438,4 +438,17 @@ button:focus-visible {
     /* Ensure loader fits within the button */
     transform: translateX(-100%);
   }
+  :root {
+    --aurora-gradient-1: #334455; /* Dark grey-blue solid color */
+    --aurora-gradient-2: #334455; /* Dark grey-blue solid color */
+    --aurora-gradient-3: #334455; /* Dark grey-blue solid color */
+    --aurora-gradient-4: #334455; /* Dark grey-blue solid color */
+  }
+
+  body,
+  body::before,
+  body::after {
+    background-image: none !important; /* Override any background image */
+    background-color: #334455 !important; /* Use the dark grey-blue color */
+  }
 }
