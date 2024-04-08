@@ -226,7 +226,7 @@ const Dashboard = () => {
             <p>Railroad Crossing: {selectedReport.railroad_crossing}</p>
             <p>DOT Employee: {selectedReport.dot_employee ? "Yes" : "No"}</p>
             <p>DOT Employee Info: {selectedReport.dot_employee_name}</p>
-            <p>User: {selectedReport.user}</p>
+            <p>User: {selectedReport.username}</p>
             <p>ID: {selectedReport.id}</p>
             {selectedReport.color === "white" && (
               <>
