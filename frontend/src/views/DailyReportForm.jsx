@@ -21,6 +21,7 @@ const DailyReportForm = () => {
     // yellow_size: "",
     dot_employee: false,
     dot_employee_name: "",
+    hand_work: false,
     stop_bars: "",
     arrows: "",
     onlys: "",
@@ -738,60 +739,76 @@ const DailyReportForm = () => {
           )}
 
           <div className="form-input-container">
-            <label htmlFor="stop_bars">Stop Bars:</label>
+            <label htmlFor="hand_work">Hand Work:</label>
             <input
               className="form-input"
-              type="text"
-              id="stop_bars"
-              name="stop_bars"
-              value={formData.stop_bars}
+              type="checkbox"
+              id="hand_work"
+              name="hand_work"
+              checked={formData.hand_work}
               onChange={handleChange}
             />
           </div>
-          <div className="form-input-container">
-            <label htmlFor="arrows">Arrows:</label>
-            <input
-              className="form-input"
-              type="text"
-              id="arrows"
-              name="arrows"
-              value={formData.arrows}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="form-input-container">
-            <label htmlFor="onlys">Onlys:</label>
-            <input
-              className="form-input"
-              type="text"
-              id="onlys"
-              name="onlys"
-              value={formData.onlys}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="form-input-container">
-            <label htmlFor="railroad_crossing">Railroad Crossing:</label>
-            <input
-              className="form-input"
-              type="text"
-              id="railroad_crossing"
-              name="railroad_crossing"
-              value={formData.railroad_crossing}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="form-input-container">
-            <label htmlFor="rpm">RPM:</label>
-            <input
-              className="form-input"
-              type="text"
-              id="rpm"
-              name="rpm"
-              value={formData.rpm}
-              onChange={handleChange}
-            />
-          </div>
+
+          {formData.hand_work && (
+            <>
+              <div className="form-input-container">
+                <label htmlFor="stop_bars">Stop Bars:</label>
+                <input
+                  className="form-input"
+                  type="text"
+                  id="stop_bars"
+                  name="stop_bars"
+                  value={formData.stop_bars}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="form-input-container">
+                <label htmlFor="arrows">Arrows:</label>
+                <input
+                  className="form-input"
+                  type="text"
+                  id="arrows"
+                  name="arrows"
+                  value={formData.arrows}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="form-input-container">
+                <label htmlFor="onlys">Onlys:</label>
+                <input
+                  className="form-input"
+                  type="text"
+                  id="onlys"
+                  name="onlys"
+                  value={formData.onlys}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="form-input-container">
+                <label htmlFor="railroad_crossing">Railroad Crossing:</label>
+                <input
+                  className="form-input"
+                  type="text"
+                  id="railroad_crossing"
+                  name="railroad_crossing"
+                  value={formData.railroad_crossing}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="form-input-container">
+                <label htmlFor="rpm">RPM:</label>
+                <input
+                  className="form-input"
+                  type="text"
+                  id="rpm"
+                  name="rpm"
+                  value={formData.rpm}
+                  onChange={handleChange}
+                />
+              </div>
+            </>
+          )}
 
           {renderInputs()}
           <div className="submit-div">
