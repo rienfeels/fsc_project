@@ -8,6 +8,7 @@ const DailyReportForm = () => {
   const initialFormData = {
     user_id: 2,
     road_name: "",
+    contract_number: "",
     contractor: "",
     workers: "",
     job_time_arrived: "",
@@ -19,6 +20,10 @@ const DailyReportForm = () => {
     // yellow_footage: 0,
     // yellow_size: "",
     dot_employee: false,
+    stop_bars: "",
+    arrows: "",
+    onlys: "",
+    railroad_crossing: "",
   };
   const navigate = useNavigate();
 
@@ -609,6 +614,17 @@ const DailyReportForm = () => {
             />
           </div>
           <div className="form-input-container">
+            <label htmlFor="contract_number">Contract Number:</label>
+            <input
+              className="form-input"
+              type="text"
+              id="contract_number"
+              name="contract_number"
+              value={formData.contract_number}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="form-input-container">
             <div className="form-label">
               <label htmlFor="contractor">Contractor:</label>
             </div>
@@ -707,6 +723,52 @@ const DailyReportForm = () => {
               }
             />
           </div>
+
+          <div className="form-input-container">
+            <label htmlFor="stop_bars">Stop Bars:</label>
+            <input
+              className="form-input"
+              type="text"
+              id="stop_bars"
+              name="stop_bars"
+              value={formData.stop_bars}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="form-input-container">
+            <label htmlFor="arrows">Arrows:</label>
+            <input
+              className="form-input"
+              type="text"
+              id="arrows"
+              name="arrows"
+              value={formData.arrows}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="form-input-container">
+            <label htmlFor="onlys">Onlys:</label>
+            <input
+              className="form-input"
+              type="text"
+              id="onlys"
+              name="onlys"
+              value={formData.onlys}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="form-input-container">
+            <label htmlFor="railroad_crossing">Railroad Crossing:</label>
+            <input
+              className="form-input"
+              type="text"
+              id="railroad_crossing"
+              name="railroad_crossing"
+              value={formData.railroad_crossing}
+              onChange={handleChange}
+            />
+          </div>
+
           {renderInputs()}
           <div className="submit-div">
             <button
