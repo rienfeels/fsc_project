@@ -20,6 +20,7 @@ const DailyReportForm = () => {
     // yellow_footage: 0,
     // yellow_size: "",
     dot_employee: false,
+    dot_employee_name: "",
     stop_bars: "",
     arrows: "",
     onlys: "",
@@ -716,14 +717,25 @@ const DailyReportForm = () => {
               id="dot_employee"
               name="dot_employee"
               checked={formData.dot_employee}
-              onChange={(e) =>
-                setFormData((prevFormData) => ({
-                  ...prevFormData,
-                  dot_employee: e.target.checked,
-                }))
-              }
+              onChange={handleChange}
             />
           </div>
+
+          {formData.dot_employee && ( // Conditionally render the input field
+            <div className="form-input-container">
+              <div className="form-label">
+                <label htmlFor="dot_employee_name">DOT Employee Name/ID:</label>
+              </div>
+              <input
+                className="form-input"
+                type="text"
+                id="dot_employee_name"
+                name="dot_employee_name"
+                value={formData.dot_employee_name}
+                onChange={handleChange}
+              />
+            </div>
+          )}
 
           <div className="form-input-container">
             <label htmlFor="stop_bars">Stop Bars:</label>

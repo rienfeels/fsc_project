@@ -25,6 +25,7 @@ class DailyReport(models.Model):
     yellow_solid_size = models.CharField(max_length=50, default='', blank=True, null=True)
     yellow_skip_size = models.CharField(max_length=50, default='', blank=True, null=True)
     dot_employee = models.BooleanField(default=False)
+    dot_employee_name = models.CharField(max_length=255, default='', blank=True)
     stop_bars = models.CharField(max_length=255, default='', blank=True)
     arrows = models.CharField(max_length=255, default='', blank=True)
     onlys = models.CharField(max_length=255, default='', blank=True)

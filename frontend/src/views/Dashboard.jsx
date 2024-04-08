@@ -209,6 +209,7 @@ const Dashboard = () => {
             <h3>Selected Report</h3>
             <p>Date Submitted: {formatDate(selectedReport.date_submitted)}</p>
             <p>Road Name: {selectedReport.road_name}</p>
+            <p>Contract Number: {selectedReport.contract_number}</p>
             <p>Contractor: {selectedReport.contractor}</p>
             <p>Workers: {selectedReport.workers}</p>
             <p>
@@ -219,6 +220,10 @@ const Dashboard = () => {
             </p>
             <p>Color: {selectedReport.color}</p>
             <p>Material: {selectedReport.material}</p>
+            <p>Stop Bars: {selectedReport.stop_bars}</p>
+            <p>Arrows: {selectedReport.arrows}</p>
+            <p>Onlys: {selectedReport.onlys}</p>
+            <p>Railroad Crossing: {selectedReport.railroad_crossing}</p>
             <p>DOT Employee: {selectedReport.dot_employee ? "Yes" : "No"}</p>
             <p>User: {selectedReport.user}</p>
             <p>ID: {selectedReport.id}</p>
