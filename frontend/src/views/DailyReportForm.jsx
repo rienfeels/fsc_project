@@ -24,6 +24,7 @@ const DailyReportForm = () => {
     arrows: "",
     onlys: "",
     railroad_crossing: "",
+    rpm: "",
   };
   const navigate = useNavigate();
 
@@ -765,6 +766,17 @@ const DailyReportForm = () => {
               id="railroad_crossing"
               name="railroad_crossing"
               value={formData.railroad_crossing}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="form-input-container">
+            <label htmlFor="rpm">RPM:</label>
+            <input
+              className="form-input"
+              type="text"
+              id="rpm"
+              name="rpm"
+              value={formData.rpm}
               onChange={handleChange}
             />
           </div>

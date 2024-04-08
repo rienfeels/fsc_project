@@ -29,5 +29,6 @@ class DailyReport(models.Model):
     arrows = models.CharField(max_length=255, default='', blank=True)
     onlys = models.CharField(max_length=255, default='', blank=True)
     railroad_crossing = models.CharField(max_length=255, default='', blank=True)
+    rpm = models.CharField(max_length=255, default='', blank=True)
     
 
