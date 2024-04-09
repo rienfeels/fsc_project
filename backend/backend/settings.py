@@ -204,8 +204,8 @@ SIMPLE_JWT = {
 
 CORS_ALLOW_ALL_ORIGINS = True
 
-CORS_ALLOWED_ORIGINS = [
-    'https://fscapp.netlify.app',
+CORS_ORIGIN_WHITELIST = [
+    "http://fscapp.netlify.app",  # replace with your frontend url
 ]
 
 CORS_ALLOW_CREDENTIALS = True
