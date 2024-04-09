@@ -202,11 +202,9 @@ SIMPLE_JWT = {
     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
 }
 
-CORS_ALLOW_ALL_ORIGINS = False
+CORS_ALLOW_ALL_ORIGINS = True
 
-CORS_ALLOWED_ORIGINS = [
-    "https://66147e2885a4c00008b96562--fscapp.netlify.app",
-]
+
 
 CORS_ALLOW_CREDENTIALS = True
 
