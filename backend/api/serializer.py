@@ -44,11 +44,9 @@ class RegisterSerializer(serializers.ModelSerializer):
         return user
     
 class DailyReportSerializer(serializers.ModelSerializer):
-    username = serializers.SerializerMethodField()
     class Meta:
         model = DailyReport
         fields = '__all__'
 
-    def get_username(self, obj):
-        return obj.user.username
+   
 

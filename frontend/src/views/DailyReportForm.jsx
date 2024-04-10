@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import Headers from "./ReportHeader";
 import { useNavigate } from "react-router-dom";
+
 import Header from "./DashHeader";
 // import { useHistory } from "react-router-dom";
 
 const DailyReportForm = () => {
   const initialFormData = {
-    // user_id: 2,
+    user_id: "",
     road_name: "",
     contract_number: "",
     contractor: "",
@@ -55,7 +56,6 @@ const DailyReportForm = () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(formData),
-          credentials: "include",
         }
       );
 
@@ -579,7 +579,7 @@ const DailyReportForm = () => {
       <div className="form-container">
         <form onSubmit={handleSubmit}>
           <div className="form-input-container">
-            {/* <div className="form-label">
+            <div className="form-label">
               <label htmlFor="user">User:</label>
             </div>
             <input
@@ -589,7 +589,7 @@ const DailyReportForm = () => {
               name="user"
               value={formData.user}
               onChange={handleChange}
-            /> */}
+            />
           </div>
           <div className="form-input-container">
             <div className="form-label">
