@@ -7,7 +7,7 @@ import Header from "./DashHeader";
 
 const DailyReportForm = () => {
   const initialFormData = {
-    user: "",
+    user_id: "",
     road_name: "",
     contract_number: "",
     contractor: "",

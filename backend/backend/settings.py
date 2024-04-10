@@ -204,11 +204,11 @@ SIMPLE_JWT = {
 
 CORS_ALLOW_ALL_ORIGINS = True
 
-CORS_ORIGIN_WHITELIST = [
-    "http://fscapp.netlify.app",  # replace with your frontend url
-]
+# CORS_ORIGIN_WHITELIST = [
+#     "http://fscapp.netlify.app",  # replace with your frontend url
+# ]
 
-CORS_ALLOW_CREDENTIALS = True
+# CORS_ALLOW_CREDENTIALS = True
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/

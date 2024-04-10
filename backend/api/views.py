@@ -26,7 +26,7 @@ class RegisterView(generics.CreateAPIView):
 
 class DailyReportListCreate(generics.ListCreateAPIView):
     queryset = DailyReport.objects.all()
-    permission_classes = (AllowAny)
+    permission_classes = (AllowAny,)
     serializer_class = DailyReportSerializer
 
    
