@@ -29,8 +29,6 @@ class DailyReportListCreate(generics.ListCreateAPIView):
     permission_classes = (AllowAny,)
     serializer_class = DailyReportSerializer
 
-   
-
 
 
 

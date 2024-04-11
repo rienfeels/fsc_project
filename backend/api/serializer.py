@@ -47,6 +47,3 @@ class DailyReportSerializer(serializers.ModelSerializer):
     class Meta:
         model = DailyReport
         fields = '__all__'
-
-   
-

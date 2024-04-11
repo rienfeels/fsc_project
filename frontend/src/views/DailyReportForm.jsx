@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import Headers from "./ReportHeader";
 import { useNavigate } from "react-router-dom";
-
 import Header from "./DashHeader";
 // import { useHistory } from "react-router-dom";
 
 const DailyReportForm = () => {
   const initialFormData = {
-    user_id: "",
+    user_id: 2,
     road_name: "",
     contract_number: "",
     contractor: "",
